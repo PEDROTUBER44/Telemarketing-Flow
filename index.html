@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="/public/icons/Rocket/LogoRocket.svg" type="image/svg" />
+    <title>Telemarketing Flow</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+    :root {
+        --primary-color: #131313;
+        --secundary-color: #2c2c2c;
+        --rocket-red: #ca000d;
+        --white-color: #ffffff;
+        --white-color-with-transparency: rgba(255, 255, 255, 0.7);
+        --border-color: #ffffff33;
+        --black-color: #080808bf;
+        --black-color-with-transparency: rgba(0, 0, 0, 0.6);
+        --black-button: rgba(0, 0, 0, 0.8);
+        --hover-button: rgba(0, 0, 0, 0.5);
+        --border-radius-default: 10px;
+        --border-radius-default-for-small-elements: 5px;
+        --padding-default: 20px;
+        --padding-default-for-small-elements: 10px;
+        --sb-track-color: #232e3300;
+        --sb-thumb-color: #000000;
+        --sb-size: 5px;
+        --accent-blue: #0f3460;
+        --text-white: #ffffff;
+        --text-gray: #b8b8b8;
+        --bracket-red: #ca000d;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: var(--primary-color);
+
+    }
+
+    *::-webkit-scrollbar {
+        width: var(--sb-size)
+    }
+
+    *::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 11px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 11px;
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+        body {
+            scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        }
+    }
+
+    .content {
+        display: flex;
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+    }
+
+
+    /*HTML Default Elements*/
+
+    h1 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    h2 {
+        color: var(--white-color);
+        text-decoration: underline var(--rocket-red);
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    h3 {
+        color: var(--white-color-with-transparency);
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+
+    p {
+        color: var(--white-color);
+        opacity: 0.9;
+        font-size: 14px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    .content {
+        display: flex;
+        height: 100vh;
+    }
+
+    #prompt {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--primary-color);
+        padding: 30px;
+        position: relative;
+    }
+
+    #promptext {
+        flex: 7;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .buttonsection {
+        flex: 3;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    #notes {
+        flex: 1;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    h1 {
+        color: var(--text-white);
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 1.4;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+        color: var(--text-gray);
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 10px 0;
+        font-style: italic;
+    }
+
+    .button {
+        width: 200px;
+        height: 100px;
+        border-radius: 10px;
+        background-color: var(--secondary-color);
+        border: 1px solid #4d4d4d;
+        cursor: pointer;
+        transition: all 0.5s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+        transition: all 0.5s;
+        background-color: var(--rocket-red);
+    }
+
+    .button h2 {
+        color: var(--text-white);
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #ccc;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .back-button:hover {
+        background-color: #aaa;
+    }
+
+    .back-button:disabled {
+        background-color: #666;
+        color: #999;
+        cursor: not-allowed;
+    }
+
+    .textarea {
+        width: 100%;
+        height: calc(100vh - 100px);
+        background: var(--primary-color);
+        border: 2px solid var(--accent-blue);
+        border-radius: 10px;
+        color: var(--text-white);
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        padding: 15px;
+        resize: none;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    .textarea:focus {
+        border-color: var(--rocket-red);
+        box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    }
+
+    .textarea::placeholder {
+        color: var(--text-gray);
+    }
+
+    .notes-title {
+        color: var(--text-white);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .step-indicator {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(233, 69, 96, 0.2);
+        color: var(--text-white);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: 1px solid var(--rocket-red);
+    }
+
+    .three-button-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .three-button-row .button {
+        min-width: 300px;
+        height: 60px;
+    }
+
+    /* Estilo para textos dentro de colchetes */
+    .bracket-text {
+        color: var(--bracket-red);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            flex-direction: column;
+        }
+
+        #prompt {
+            width: 100%;
+            height: 70vh;
+        }
+
+        #notes {
+            height: 30vh;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        .button {
+            min-width: 150px;
+            height: 70px;
+        }
+    }
+</style>
+
+<body>
+    <div class="content">
+        <div class="section" id="prompt">
+            <button class="back-button" id="backButton" onclick="goBack()">← Voltar</button>
+            <div class="step-indicator" id="stepIndicator">Passo 1/10</div>
+
+            <div id="promptext">
+                <h1 id="mainText"></h1>
+
+                <div id="subtextContainer">
+
+                </div>
+            </div>
+
+            <div id="options">
+                <div class="buttonsection" id="buttonContainer">
+                    <button class="button" onclick="handleResponse('sim')">
+                        <h2>SIM</h2>
+                    </button>
+                    <button class="button" onclick="handleResponse('nao')">
+                        <h2>NÃO</h2>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="notes">
+            <div class="notes-title">Anotações da Chamada</div>
+            <textarea class="textarea" id="notesArea"
+                placeholder="Digite suas anotações aqui...&#10;&#10;- Nome do cliente:&#10;- Empresa:&#10;- Telefone:&#10;- Observações:"></textarea>
+        </div>
+    </div>
+
+    <script>
+        const flowData = {
+            start: {
+                text: "[Seu nome], da Rocket, é com o [Nome da Pessoa] que eu falo? [PAUSA] Estou entrando em contato com algumas empresas da região que foram pré- selecionadas para um projeto exclusivo de mapeamento e alavancagem digital.O nome da sua empresa apareceu entre os perfis com maior potencial de crescimento não aproveitado aqui no nosso sistema.Seria com você mesmo que eu trataria sobre isso? ",
+                subtext: [
+                    "Faça com que o '[Seu nome], da Rocket' seja em um tom de questionamento",
+                    "Aguarde a resposta do cliente antes de prosseguir",
+                    "Mantenha tom profissional e confiante",
+                    "Se necessário, repita o nome da empresa"
+                ],
+                options: [
+                    { text: "SIM, É COMIGO MESMO", action: "interessado" },
+                    { text: "NÃO É COMIGO", action: "pegar_contato" },
+                    { text: "AONDE PEGOU ESSA INFORMAÇÂO", action: "curiosidade" },
+                    { text: "NÃO QUERO", action: "objecao_total" }
+                ],
+                step: 1
+            },
+
+
+
+
+            interessado: {
+                text: "[Nome da Pessoa]! Me responde rapidinho só pra eu entender se a sua empresa realmente se encaixa no perfil ideal do projeto, pode ser?",
+                subtext: [
+                    "Perguntas (tom consultivo):",
+                    "Hoje vocês têm alguma presença online ativa? Tipo Instagram profissional ou Google Meu Negócio?",
+                    "Costumam divulgar os produtos/serviços como? Só no boca a boca?",
+                    "Tém algum sistema pra controlar finanças, estoque ou clientes?",
+                    "Já investiram em marketing ou tentaram algo para aumentar as vendas?"
+                ],
+                options: [
+                    { text: "SE QUALIFICA", action: "qualifica" },
+                    { text: "PRIMEIRO QUERO SABER MAIS", action: "reuniao" },
+                    { text: "NÂO SE QUALIFICA", action: "nao_qualifica"}
+                ],
+                step: 2
+            },
+
+            pegar_contato: {
+                text: "[Nome da Pessoa], pode me dizer como posso entrar em contato com a pessoa responsavel? ",
+                subtext: [
+                    "(Técnica: Condução em linha reta controle da conversa + parecer uma pesquisa, não venda)"
+                ],
+                options: [
+                    { text: "Finalizar", action: "fim" },
+                ],
+                step: 2
+            },
+
+            curiosidade: {
+                text: "A gente faz um cruzamento de dados públicos e digitais aqui da região — incluindo presença em redes sociais, dados do Google, informações de mercado e histórico de buscas locais. Sua empresa apareceu como uma das empresas com alto potencial, mas com pouca presença digital ou ausência de ferramentas de gestão. Por isso, entrou no radar desse projeto que a gente está oferecendo só para alguns perfis bem específicos.",
+                options: [
+                    { text: "PERGUNTAS", action: "interessado" },
+                    { text: "QUER SABER MAIS", action: "interessado" },
+                    { text: "ISSO É VENDAS?", action: "desconfia" }
+                ],
+                step: 2
+            },
+
+            objecao_total: {
+                text: "Perfeito, entendo totalmente. Agradeço pelo seu tempo — nosso objetivo aqui é ajudar empresas que estejam num momento de crescimento ou estruturação, e respeitamos completamente quando não é o caso. Vou retirar seu nome da lista de pré-seleção e, se em algum momento fizer sentido, estamos à disposição. Um ótimo dia pra você, sucesso aí no seu trabalho!",
+                options: [
+                    { text: "Finalizar", action: "fim" },
+                ],
+                step: 2
+            },
+
+
+
+
+            qualifica: {
+                text: "Entendi [Nome da Pessoa]. Olha, só de ouvir essas respostas já consigo te dizer o seguinte: tem um potencial aqui que provavelmente está sendo desperdiçado. Posso marcar um horario com você para te mostrar o que pode ser feito",
+                options: [
+                    { text: "MARCAR REUNIÃO", action: "reuniao" },
+                    { text: "ENVIAR MSG VIA WPP", action: "wpp" },
+                ],
+                step: 3
+            },
+
+            nao_qualifica: {
+                text: "Então [Nome da Pessoa], entendi! Pelo que você me disse, acho que nesse momento o projeto da Rocket talvez não se encaixe 100% no seu perfil atual — mas pode ser que mais pra frente faça sentido.",
+                step: 3
+            },
+
+            fim: {
+                text: "Eu agradeço muitissimo seu tempo e desejo muito sucesso aí no seu trabalho. Um abraço e um ótimo dia para ti!",
+                step: 3
+            },
+
+            desconfia: {
+                text: "Ótima pergunta! Na verdade, não é uma venda direta — é um mapeamento que estamos oferecendo gratuitamente pra algumas empresas da região com potencial de crescimento. Se fizer sentido pra você, a gente marca uma conversa mais completa. Se não fizer, você já sai com algumas ideias que pode aplicar sozinho mesmo, sem custo.",
+                options: [
+                    { text: "CONTINUAR", action: "interessado" },
+                ],
+                step: 3
+            },
+
+
+
+
+            reuniao: {
+                text: "Por isso, o ideal agora seria a gente agendar uma conversa rápida, pode ser de uns 15 a 20 min no máximo, onde eu mostro exatamente como o projeto funciona, sem compromisso nenhum. Se fizer sentido, você aproveita. Se não fizer, já sai com ideias úteis que pode aplicar sozinho. Me passa seu número de Whatsapp para que eu mande as informações sobre a reunião fazendo favor",
+                options: [
+                    { text: "Finalizar", action: "fim" },
+                ],
+                step: 4
+            },
+
+            wpp: {
+                text: "Como o projeto é só pra empresas pré-selecionadas, a gente costuma enviar os detalhes e o link com as soluções direto no WhatsApp pra facilitar o acesso. Qual é o número com WhatsApp que posso te mandar isso?",
+                options: [
+                    { text: "Finalizar", action: "fim" },
+                ],
+                step: 4
+            }
+
+        };
+
+        let currentFlow = 'start';
+        let history = [];
+
+        function formatTextWithBrackets(text) {
+            return text.replace(/\[([^\]]+)\]/g, '<span class="bracket-text">[$1]</span>');
+        }
+
+        function handleResponse(action) {
+            history.push(currentFlow);
+            currentFlow = action;
+            updateFlow();
+        }
+
+        function updateFlow() {
+            const flow = flowData[currentFlow];
+            if (!flow) {
+                console.error('Flow não encontrado:', currentFlow);
+                return;
+            }
+
+            document.getElementById('mainText').innerHTML = formatTextWithBrackets(flow.text);
+            document.getElementById('stepIndicator').textContent = `Passo ${flow.step}/10`;
+
+            // Atualizar subtexto
+            const subtextContainer = document.getElementById('subtextContainer');
+            subtextContainer.innerHTML = '';
+
+            if (flow.subtext) {
+                flow.subtext.forEach(text => {
+                    const p = document.createElement('p');
+                    p.innerHTML = formatTextWithBrackets(text);
+                    subtextContainer.appendChild(p);
+                });
+            }
+
+            // Atualizar estado do botão voltar
+            const backButton = document.getElementById('backButton');
+            if (history.length === 0) {
+                backButton.disabled = true;
+            } else {
+                backButton.disabled = false;
+            }
+
+            const container = document.getElementById('buttonContainer');
+            container.innerHTML = '';
+
+            flow.options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'button';
+                button.onclick = () => {
+                    if (option.action === 'restart') {
+                        restartFlow();
+                    } else {
+                        handleResponse(option.action);
+                    }
+                };
+
+                const h2 = document.createElement('h2');
+                h2.innerHTML = formatTextWithBrackets(option.text);
+                button.appendChild(h2);
+
+                container.appendChild(button);
+            });
+        }
+
+        function goBack() {
+            if (history.length > 0) {
+                currentFlow = history.pop();
+                updateFlow();
+            }
+        }
+
+        function restartFlow() {
+            currentFlow = 'start';
+            history = [];
+            updateFlow();
+            document.getElementById('notesArea').value = "Digite suas anotações aqui...\n\n- Nome do cliente:\n- Empresa:\n- Telefone:\n- Observações:";
+        }
+
+        // Inicializar o fluxo
+        updateFlow();
+    </script>
+</body>
+
+</html>

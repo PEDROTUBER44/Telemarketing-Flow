@@ -1,0 +1,81 @@
+/*Elements*/
+.box {
+    height: auto;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-default);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding: var(--padding-default);
+    background: linear-gradient(145deg, #111111, #141414);
+    box-shadow:  20px 20px 28px #101010, -20px -20px 28px #161616;
+}
+
+section.centralizer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contentflexinline {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+} 
+
+.contentflexinline .element {
+    width: 100%;
+    height: auto;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+} .contentflexinline .element:last-child {
+    margin-right: 0;
+}
+
+.marginbottom {
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 2000px;
+    height: 500px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--padding-default);
+}
+
+
+/*Media Queries; Menores que:*/
+@media (max-width: 480px) {
+    input {
+        height: 40px;
+        border-radius: var(--border-radius-default-for-small-elements);
+        padding: var(--padding-default-for-small-elements);
+    }
+
+    .box {
+        border-radius: var(--border-radius-default-for-small-elements);
+        padding: var(--padding-default-for-small-elements);
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 1280px) {
+}
+
+/*Media Querie; Maior que:*/
+@media (min-width: 1281px) {
+}
